@@ -107,7 +107,7 @@ h1 em {
     position: absolute;
     display: block;
     content: "";
-    background: no-repeat center/cover url(/img/yagi.png);
+    background: no-repeat center/cover url(img/yagi.png);
     width: 100vw;
     height: 87.6vw;
     right: -50vw;
