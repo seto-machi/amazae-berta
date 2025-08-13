@@ -173,18 +173,6 @@ h1 em {
 }
 
 
-
-.onigiri {
-  figure {
-    margin: 0;
-    width: 100%;
-
-    @media (min-width: 768px) {
-      width: 50%;
-    }
-  }
-}
-
 .pagescroll {
   height: 44px;
   background-color: white;
@@ -387,7 +375,8 @@ footer p {
 
 #Design,
 #twodcg,
-#Anime {
+#Anime,
+#App {
   text-align: center;
 
   h1 {
@@ -429,7 +418,6 @@ footer p {
     margin: 0;
   }
 }
-
 
 .popup-content {
   background-color: #fefefe;
@@ -477,7 +465,53 @@ footer p {
 
 }
 
+.appbox {
+  display: flex;
+  align-items: center;
 
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  figcaption {
+    font-size: 25pt;
+    text-align: left;
+    margin: 0 25px;
+
+    @media (max-width: 767px) {
+      margin-top: 25px;
+    }
+
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+
+#App {
+  padding-bottom: 75px;
+
+  a {
+    display: block;
+
+    &:visited {
+      color: white;
+    }
+  }
+}
 
 /* overlay-styles.css */
 .hamburger-overlay {
