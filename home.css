@@ -473,10 +473,6 @@ footer p {
     flex-direction: column;
   }
 
-  a {
-    text-decoration: none;
-  }
-
   figure {
     display: flex;
     justify-content: center;
@@ -506,7 +502,10 @@ footer p {
 
   a {
     display: block;
+    text-decoration: none;
+    margin-bottom: 25px;
 
+    &,
     &:visited {
       color: white;
     }
