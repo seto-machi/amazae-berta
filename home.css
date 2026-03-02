@@ -1,3 +1,13 @@
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -18,7 +28,7 @@ header {
   z-index: 2;
 }
 
-h1 {
+h2 {
   font-size: 4em;
 }
 
@@ -64,7 +74,7 @@ footer {
     height: 100vh;
   }
 
-  &::after {
+  /* &::after {
     position: absolute;
     display: block;
     content: "";
@@ -77,6 +87,43 @@ footer {
       background-position: center;
     }
 
+  } */
+}
+
+.title {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.ue,
+.sita {
+  position: absolute;
+  width: 125%;
+  display: inline-block;
+  /* ensures it respects transform */
+  animation: slow-spin 120s linear infinite;
+  opacity: 0.75;
+}
+
+.ue {
+  left: -50%;
+  top: -125%;
+
+  @media (max-width: 767px) {
+    top: -50%;
+  }
+}
+
+.sita {
+  right: -50%;
+  bottom: -125%;
+
+  @media (max-width: 767px) {
+    bottom: -50%;
   }
 }
 
@@ -131,12 +178,8 @@ footer {
   color: #3E9BEB;
   text-align: center;
   font-size: 24pt;
+  z-index: 1;
 
-  @media (max-width: 1159px) {
-
-    text-align: left;
-    padding: 0 10vw;
-  }
 }
 
 #Profile {
@@ -162,7 +205,7 @@ footer {
       margin-left: 25px;
     }
 
-    h1,
+    h2,
     p {
       margin: 0;
     }
@@ -187,7 +230,7 @@ footer {
   text-align: center;
   padding: 50px 25px;
 
-  h1 {
+  h2 {
     margin: 0;
 
     @media (max-width: 767px) {
@@ -195,7 +238,7 @@ footer {
     }
   }
 
-  h1 em {
+  h2 em {
     margin-top: -25px;
     display: block;
   }
@@ -265,8 +308,9 @@ footer {
   width: 100%;
   max-width: 950px;
   padding: 0 25px 50px;
+  text-align: center;
 
-  h1 {
+  h2 {
     margin: 50px 0;
   }
 
@@ -323,20 +367,33 @@ footer p {
   font-size: x-large;
 }
 
-.gallary_bg {
-  background-image: url(img/02181.png);
-  background-size: cover;
-}
-
-
 #Design,
 #twodcg,
 #Anime,
 #App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  h1 {
-    margin: 50px 0;
+  h2 {
+    margin: 50px 0 25px;
+  }
+}
+
+.imageboard {
+  margin-bottom: 50px;
+  padding: 0 25px;
+
+  figure {
+    margin: 0;
+    background-color: white;
+    display: inline-flex;
+    width: 100%;
+    max-width: 1200px;
+    background-position: center;
+    background-size: cover;
   }
 }
 
@@ -344,7 +401,8 @@ footer p {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
+  width: 100%;
+  max-width: 1200px;
 }
 
 .sumnail {
@@ -355,6 +413,9 @@ footer p {
   justify-content: center;
   align-items: center;
   margin: 0 12px 25px;
+  outline-offset: -4px;
+  outline: 4px solid white;
+  border-radius: 15px;
 
 }
 
@@ -365,24 +426,41 @@ footer p {
   top: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  display: flex;
 
-  @media (min-width: 768px) {
-    height: 100%;
+  @media (max-width: 767px) {
+    align-items: center;
   }
 
-  figure {
-    margin: 0;
-  }
 }
 
 .popup-content {
   background-color: #fefefe;
-  margin: 25px auto;
+  margin: 25px auto 0;
   padding: 25px;
-  width: 80%;
-  height: calc(100% - 50px);
   text-align: left;
-  overflow: scroll;
+
+  @media (max-width: 767px) {
+    width: 80%;
+  }
+
+  figure {
+    margin: 0;
+    display: inline;
+
+    @media (max-width: 767px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+  }
+
 }
 
 .popup-close {
@@ -424,10 +502,7 @@ footer p {
 .appbox {
   display: flex;
   align-items: center;
-
-  @media (max-width: 767px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 
   figure {
     display: flex;
@@ -436,21 +511,32 @@ footer p {
     width: 200px;
     height: 200px;
     overflow: hidden;
+    outline-offset: -4px;
+    outline: 4px solid white;
+    border-radius: 15px;
+
   }
 
   figcaption {
     font-size: 25pt;
-    text-align: left;
     margin: 0 25px;
-
-    @media (max-width: 767px) {
-      margin-top: 25px;
-    }
 
     p {
       text-decoration: underline;
     }
   }
+}
+
+#Design .imageboard figure {
+  background-image: url(img/gallary/pie-corn.png);
+}
+
+#twodcg .imageboard figure {
+  background-image: url(img/gallary/0728.jpg);
+}
+
+#Anime .imageboard figure {
+  background-image: url(img/gallary/GifMerge_3508x2480.gif);
 }
 
 #App {
@@ -467,10 +553,14 @@ footer p {
     }
   }
 
-  .box {
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
+  h2 svg {
+    width: 0.5em;
+    margin-left: 0.2em;
+    fill: white;
+  }
+
+  .imageboard figure {
+    background-image: url(img/counter_thumb.png);
   }
 }
 

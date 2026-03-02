@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         sumnailbox[i].addEventListener('click', function () {
             const popup = this.querySelector(".popup");
             popup.classList.toggle('popup-close');
+
+            const popupheight = popup.getBoundingClientRect().height;
+            const pop_content = popup.querySelector(".popup-content img");
+            const pop_content_height = (popupheight - 105) + "px";
+            pop_content.style.maxHeight = pop_content_height;
+            pop_content.style.width = "auto";
         });
     };
 
