@@ -503,6 +503,7 @@ footer p {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 0 12px;
 
   figure {
     display: flex;
@@ -519,7 +520,9 @@ footer p {
 
   figcaption {
     font-size: 25pt;
-    margin: 0 25px;
+    margin: 10px 0 0;
+    max-width: 200px;
+    line-height: 1em;
 
     p {
       text-decoration: underline;
